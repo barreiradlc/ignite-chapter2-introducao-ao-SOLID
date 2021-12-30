@@ -42,6 +42,16 @@ class UsersRepository implements IUsersRepository {
   turnAdmin(receivedUser: User): User {
     const user = this.users.find((user) => user.id === receivedUser.id);
 
+    this.users = this.users.map((user) => {
+      if (user.id === receivedUser.id) {
+        return {
+          ...user,
+          admin: true,
+        };
+      }
+      return user;
+    });
+
     user.admin = true;
 
     return receivedUser;
