@@ -14,7 +14,7 @@ class CreateUserController {
 
     console.log(user);
 
-    return response.status(201).send();
+    return response.status(201).json(user);
   }
 }
 
